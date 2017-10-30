@@ -1,0 +1,39 @@
+create table aitp_tasks
+(
+	task_id serial not null primary key identity(1,1)
+	description varchar(max),
+	duedate datetime,
+	complete bit
+);
+
+create table aitp_users
+(
+	id integer not null constraint users_pkey primary key,
+	name varchar(25)
+);
+
+create table aitp_user_tasks
+(
+	user_id integer not null,
+	task_id integer not null,
+	add constraint pk_user_tasks primary key (user_id, task_id)
+);
+
+-- insert some extra data
+
+INSERT INTO aitp_tasks (task_id, description, duedate, complete) VALUES (4, 'Buy Groceries', '2017-10-26 00:00:00.000000', true);
+INSERT INTO aitp_tasks (task_id, description, duedate, complete) VALUES (1, 'Fix car', '2017-10-10 15:56:03.227000', true);
+INSERT INTO aitp_tasks (task_id, description, duedate, complete) VALUES (5, 'Homework', '2017-10-11 00:00:00.000000', false);
+INSERT INTO aitp_tasks (task_id, description, duedate, complete) VALUES (3, 'Go the gym', '2017-10-10 00:00:00.000000', true);
+INSERT INTO aitp_tasks (task_id, description, duedate, complete) VALUES (2, 'Study', '2017-10-10 00:00:00.000000', false);
+INSERT INTO aitp_tasks (task_id, description, duedate, complete) VALUES (7, 'Procrastinate', '2017-10-18 00:00:00.000000', false);
+
+
+INSERT INTO aitp_users (id, name) VALUES (1, 'Chris');
+INSERT INTO aitp_users (id, name) VALUES (2, 'Aaron');
+
+INSERT INTO aitp_user_tasks (user_id, task_id) VALUES (1, 4);
+INSERT INTO aitp_user_tasks (user_id, task_id) VALUES (2, 4);
+
+-- apply constraints
+
