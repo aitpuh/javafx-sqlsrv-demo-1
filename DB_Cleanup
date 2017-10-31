@@ -1,0 +1,3 @@
+DROP TABLE aitp_user_tasks;
+DROP TABLE aitp_users;
+DROP TABLE aitp_tasks;
