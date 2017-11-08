@@ -19,4 +19,8 @@ public class Users {
 
     private int user_id;
     private String name;
+
+    public String toString() {
+        return String.format("%s", name);
+    }
 }
